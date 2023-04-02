@@ -1,0 +1,5 @@
+Passenger,Private Jet,300,2100,300000000
+Passenger,Jet pack,30,120,20000000
+Fighter,Fighter Jet,5000,70000,5000000000
+Fighter,Lamborghini Fighter,7000,14000,800000000
+Cargo,Cargo Carrier,2000,4000,150000000

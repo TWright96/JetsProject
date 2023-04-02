@@ -24,26 +24,20 @@ public class JetsApplication {
 
 	public void run() {
 
-        listOfJets = af.getFleet();
+		listOfJets = af.getFleet();
 		int select;
 		do {
-
 			menu();
 			select = sc.nextInt();
-
 			if (select == 1) {
 				list();
 			}
-
 			if (select == 2) {
 				fly();
-				
 			}
 			if (select == 3) {
-
 				fastestJet();
 			}
-
 			if (select == 4) {
 				longestRange();
 			}
@@ -52,24 +46,19 @@ public class JetsApplication {
 			}
 			if (select == 6) {
 				fightJets();
-
 			}
 			if (select == 7) {
 				addJet();
 			}
-
 			if (select == 8) {
 				removeJet();
 			}
-
 			if (select == 9) {
-               System.out.println("Goodbye");
+				System.out.println("Goodbye");
 			}
 		} while (select != 9);
 
 	}
-
-//create the AirField
 
 	public void menu() {
 		System.out.println("1.List fleet");
@@ -87,7 +76,6 @@ public class JetsApplication {
 		for (Jet jet : af.getFleet()) {
 			System.out.println(jet);
 		}
-
 	}
 
 	public void fly() {
@@ -108,8 +96,7 @@ public class JetsApplication {
 
 			}
 		}
-		System.out.println(maximum);
-
+		System.out.println("The fastest jet is :\n" + maximum);
 	}
 
 	public void longestRange() {
@@ -121,7 +108,7 @@ public class JetsApplication {
 				maximum = jet;
 			}
 		}
-		System.out.println(maximum);
+		System.out.println("The jet with the longest range: \n" + maximum);
 	}
 
 	public void loadCargoJets() {
@@ -129,7 +116,6 @@ public class JetsApplication {
 			if (jet instanceof Cargo) {
 				((Cargo) jet).loadCargo();
 				System.out.println(jet);
-
 			}
 		}
 	}
@@ -139,7 +125,6 @@ public class JetsApplication {
 			if (jet instanceof Fighter) {
 				System.out.println(jet.getModel() + ":");
 				((Fighter) jet).fight();
-
 			}
 		}
 	}
@@ -157,25 +142,22 @@ public class JetsApplication {
 			int range = sc.nextInt();
 			System.out.println("Jet price:");
 			long price = sc.nextLong();
-
 			if (jettype == 1) {
 				af.getFleet().add(new Passenger(model, speed, range, price));
-
 			}
 			if (jettype == 2) {
 				af.getFleet().add(new Fighter(model, speed, range, price));
 			}
 			if (jettype == 3) {
 				af.getFleet().add(new Cargo(model, speed, range, price));
-
+			} else {
+				af.getFleet().add(new Passenger(model, speed, range, price));
 			}
 			System.out.println("Jet has been added to fleet.");
 		} catch (InputMismatchException o) {
 			System.out.println("Invalid input");
 			System.out.println(o.getMessage());
-
 		}
-
 	}
 
 	public void removeJet() {
